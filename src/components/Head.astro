@@ -1,11 +1,10 @@
 ---
 export interface Props {
-	canonical?: string;
 	description: string;
 	title?: string;
 }
 
-const { canonical, description } = Astro.props;
+const { description } = Astro.props;
 
 const image = new URL("favicon.png", Astro.site).toString();
 
@@ -99,7 +98,6 @@ const metaPairs = [
 	<meta charset="utf-8" />
 	<link href="/favicon.png" rel="icon" type="image/svg+xml" />
 	<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
-	{canonical && <link rel="canonical" href={canonical} />}
 	{metaPairs.map((meta) => <meta {...meta} />)}
 	<meta content={description} name="description" />
 	<meta content={keywords.join()} name="keywords" />
